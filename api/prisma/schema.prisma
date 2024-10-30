@@ -101,4 +101,3 @@ model Message {
   chatId    String   @db.ObjectId
   createdAt DateTime @default(now())
 }
-
