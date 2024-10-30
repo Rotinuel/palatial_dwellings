@@ -1,5 +1,5 @@
 import prisma from "../lib/prisma.js";
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 
 export const getUsers = async (req, res) => {
   try {
@@ -36,7 +36,7 @@ export const updateUser = async (req, res) => {
   let updatedPassword = null;
   try {
     if (password) {
-      updatedPassword = await bcrypt.hash(password, 10);
+      updatedPassword = await bcryptjs.hash(password, 10);
     }
 
     const updatedUser = await prisma.user.update({
